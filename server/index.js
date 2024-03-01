@@ -1,13 +1,19 @@
-const fs = require("fs");
-const pdf = require("pdf-parse");
+const express = require("express");
+const app = express();
+const mongooseConnection = require("./db/connection");
+const pdfRouter = require("./routes/Pdf");
+const industryRouter = require("./routes/Industry");
+const departmentRouter = require("./routes/Department");
+const employmentRouter = require("./routes/Employment");
+const userRouter = require("./routes/User");
 
-const pdfFile = fs.readFileSync("avez.pdf");
+app.use("/pdf", pdfRouter);
+app.use("/industry", industryRouter);
+app.use("/department", departmentRouter);
+app.use("/employment", employmentRouter);
+app.use("/user", userRouter)
 
-pdf(pdfFile).then(function (data) {
-    const skillsIndex = data.text.indexOf("SKILLS");
-    const nextSectionIndex = data.text.indexOf("EXPERIENCE", skillsIndex);
-
-    const skillsSection = data.text.substring(skillsIndex, nextSectionIndex);
-
-    console.log(skillsSection);
+const PORT = process.env.PORT || 8800;
+app.listen(PORT, () => {
+    console.log("Server Started");
 });

@@ -1,11 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import PdfReader from './components/PdfReader';
+import UploadToCloud from './components/UploadToCloud';
 
 function App() {
   return (
   <>
-    <PdfReader/>
+    <UploadToCloud/>
   </>
   );
 }
