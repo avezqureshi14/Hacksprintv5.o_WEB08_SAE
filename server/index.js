@@ -1,13 +1,13 @@
-import express from "express"
-import fileUpload from "express-fileupload";
-import PdfParse from "pdf-parse";
-import {connectToDatabase} from "./db/connection.js"
-const app = express();
+const fs = require("fs");
+const pdf = require("pdf-parse");
 
-app.use("/",express.static("public"));
+const pdfFile = fs.readFileSync("avez.pdf");
 
-const PORT = 8800;
-connectToDatabase();
-app.listen(() => {
-    console.log(`Server is running on PORT ${PORT}`)
-})
+pdf(pdfFile).then(function (data) {
+    const skillsIndex = data.text.indexOf("SKILLS");
+    const nextSectionIndex = data.text.indexOf("EXPERIENCE", skillsIndex);
+
+    const skillsSection = data.text.substring(skillsIndex, nextSectionIndex);
+
+    console.log(skillsSection);
+});
