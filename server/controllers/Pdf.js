@@ -1,4 +1,4 @@
-const PdfDetails = require("../models/Pdf");
+const PdfDetails = require("../models/pdf");
 const upload = require("../middlewares/multerMiddleware");
 const fs = require("fs");
 const pdf = require("pdf-parse");
@@ -11,18 +11,11 @@ const uploadFile = async (req, res) => {
     try {
         const pdfFilePath = `./files/${fileName}`;
 
-        // Read the uploaded PDF file
         const pdfFile = fs.readFileSync(pdfFilePath);
-
-        // Parse the PDF to extract data
         const parsedData = await pdf(pdfFile);
-
-        // Extract the skills section
         const skillsIndex = parsedData.text.indexOf("SKILLS");
         const nextSectionIndex = parsedData.text.indexOf("EXPERIENCE", skillsIndex);
         const skillsSection = parsedData.text.substring(skillsIndex, nextSectionIndex);
-
-        // Save the PDF details along with the extracted skills section
         await PdfDetails.create({ title: title, pdf: fileName, skillsSection: skillsSection });
         console.log(skillsSection)
         res.status(200).json({ status: "ok", extractedData: skillsSection });

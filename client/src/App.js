@@ -1,11 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 import UploadToCloud from './components/UploadToCloud';
+import LinkedinData from './components/LinkedinData';
 
 function App() {
   return (
   <>
-    <UploadToCloud/>
+    <LinkedinData/>
   </>
   );
 }
