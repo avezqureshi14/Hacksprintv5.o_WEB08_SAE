@@ -1,38 +1,106 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+  max-width: 120rem;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+/* Reset some default styles */
+body, h1, h2, p, ul, li {
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Chat container styles */
+.chat-container {
+  max-width: 400px;
+  margin: 20px auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(30, 10, 58, .04);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Chat header styles */
+.chat-header {
+  background-color: #000;
+  color: #fff;
+  padding: 15px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.chat-header img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.contact-info h2 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.contact-info p {
+  font-size: 12px;
+}
+
+/* Chat messages styles */
+.chat-messages {
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 6px 12px rgba(30, 10, 58, .04);
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.message {
+  padding: 8px 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.sent {
+  background-color: #e3e2e2;
+  color: #000;
+  align-self: flex-end;
+}
+
+.received {
+  background-color: #fff;
+  color: #000;
+  align-self: flex-start;
+}
+
+/* Chat input styles */
+.chat-input {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #f1f0f0;
+  border-top: 1px solid #e0e0e0;
+}
+
+input {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+button {
+  /* background-color: #000; */
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  box-shadow: 0 14px 40px rgba(30, 10, 58, .1);
 }

@@ -1,6 +1,6 @@
 import React from "react";
-import jeff from "../../assets/images/jeff.png"
-import quote from "../../assets/images/icons/quotes.svg"
+import jeff from "../assets/images/testimonial-1.jpg"
+import quote from "../assets/images/icons/quotes.svg"
 const Testimonials = () => {
     return (
         <>

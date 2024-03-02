@@ -1,5 +1,5 @@
 import React from "react";
-import summer from "../../assets/images/cta-banner.jpg"
+import summer from "../assets/images/cta-banner.jpg"
 const CTA = () => {
     return (
         <>

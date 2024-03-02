@@ -8,7 +8,7 @@ const HeaderMain = () => {
               <div class="container">
 
                   <a href="#" class="header-logo">
-                      <img src="./assets/images/logo/logo.svg" alt="Anon's logo" width="120" height="36"/>
+                    <h1 style={{color:"black"}} >Avez.</h1>
                   </a>
 
                   <div class="header-search-container">

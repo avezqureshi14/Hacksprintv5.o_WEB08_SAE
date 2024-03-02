@@ -1,16 +1,17 @@
 import React from 'react'
-
-const Product = () => {
+import { NavLink } from 'react-router-dom'
+const Product = ({ job }) => {
     return (
-        <div class="jobItemCard">
-            <h3>Software Developer - Be / Btech / MCA / MTech / BSc Freshers & EXP</h3>
-            <h4>Reputed IT Company Name</h4>
-            <h4>Posted by Balasundaram Santosh</h4>
-            <ul>
-                <li>$ 2-7 Lacs PA &nbsp; | &nbsp; <i class='bx bx-map'></i> Hybrid - Hyderabad</li>
-            </ul>
-
-        </div>
+        <NavLink to={`/job/${job._id}`} >
+            <div class="jobItemCard">
+                <h3>{job.title}</h3>
+                <h4>{job.companyName}</h4>
+                <h4>Posted by Balasundaram Santosh</h4>
+                <ul>
+                    <li>{job.salary === '' ? <> Not Disclosed </> : <> $ 2-7 Lacs PA </>} &nbsp; | &nbsp; <i class='bx bx-map'></i> Hybrid - Hyderabad</li>
+                </ul>
+            </div>
+        </NavLink>
     )
 }
 

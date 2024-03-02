@@ -11,7 +11,17 @@ const createLocation = async (req, res) => {
         res.status(500).json({ status: "error", message: "Internal server error" });
     }
 };
+const getLocation = async (req, res) => {
+    try {
+        const locations = await Location.find();
+        res.status(200).json({ status: "ok", data: locations });
+    } catch (error) {
+        console.error("Error creating Location", error);
+        res.status(500).json({ status: "error", message: "Internal server error" });
+    }
+};
 
 module.exports = {
-    createLocation
+    createLocation,
+    getLocation
 }
